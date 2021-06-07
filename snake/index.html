@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<!-- 1 头碰到身体，游戏结束
+2 玩的身长增加，游戏速度加快
+3 玩的身长增加，增加障碍物
+4 积分系统 -->
+
+<body>
+    <div id="box"></div>
+    <div id="box2"></div>
+    <script src="js/Block.js"></script>
+    <script src="js/Food.js"></script>
+    <script src="js/Game.js"></script>
+    <script src="js/Snake.js"></script>
+    <script src="js/Map.js"></script>
+    <script src="./ickt.js"></script>
+    <script>
+        var box = document.getElementById('box')
+            // 实例化个各类
+        var block = new Block('./img/block.png');
+        var food = new Food(2, 6, './img/food.jpg');
+        var map = new Map(600, 600, 20, 20, box);
+        var snake = new Snake(
+            ['./img/1.png', './img/2.png', './img/3.png', './img/4.png'],
+            './img/5.png', ['./img/8.png', './img/9.png', './img/6.png', './img/7.png']
+        );
+        var game = new Game(block, food, map, snake);
+        game.init();
+    </script>
+</body>
+
+</html>
